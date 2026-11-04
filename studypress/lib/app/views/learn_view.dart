@@ -13,6 +13,9 @@ import "common/subject_list.dart";
 import "common/online_course_card.dart";
 import "common/course_action_card.dart";
 import "common/upcoming_class_card.dart";
+import "common/common_bottom_navigation.dart";
+import "tests_view.dart";
+import "today_view.dart";
 
 class LearnView extends StatefulWidget {
   const LearnView({super.key});
@@ -150,7 +153,7 @@ class _LearnViewState extends State<LearnView> {
                 ),
                 const SizedBox(height: 18,),
                 CommonWhitCard(
-                 // padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   child: Row(
                     children: [
                       CommonTab(
@@ -223,7 +226,6 @@ class _LearnViewState extends State<LearnView> {
                     ),
 
                     const SizedBox(width: 10),
-
                     Expanded(
                       child: CourseActionCard(
                         icon: Icons.menu_book_outlined,
@@ -251,56 +253,38 @@ class _LearnViewState extends State<LearnView> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.fromLTRB(8, 9, 8, 22),
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(255, 255, 255, 0.94),
-          border: const Border(
-            top: BorderSide(
-              color: Color.fromRGBO(232, 234, 240, 1),
-            ),
-          ),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromRGBO(11, 32, 51, 0.28),
-              offset: Offset(0, -10),
-              blurRadius: 24,
-              spreadRadius: -18,
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            FooterIcon(
-              icon: Icons.home_outlined,
-              title: "Today",
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            FooterIcon(
-              icon: Icons.menu_book_outlined,
-              title: "Learn",
-              selected: true,
-              onTap: () {},
-            ),
-            FooterIcon(
-              icon: Icons.fact_check_outlined,
-              title: "Tests",
-              onTap: () {},
-            ),
-            FooterIcon(
-              icon: Icons.autorenew,
-              title: "Revision",
-              onTap: () {},
-            ),
-            FooterIcon(
-              icon: Icons.apps,
-              title: "More",
-              onTap: () {},
-            ),
-          ],
-        ),
+      bottomNavigationBar: CommonBottomNavigation(
+        selectedIndex: 1,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TodayView(),
+                ),
+              );
+              break;
+
+            case 1:
+              break;
+
+            case 2:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TestsView(),
+                ),
+              );
+              break;
+
+            case 3:
+              break;
+
+            case 4:
+              break;
+          }
+        },
       ),
     );
   }

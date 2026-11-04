@@ -8,8 +8,10 @@ import 'common/lightText.dart';
 import 'common/actionButtonCommon.dart';
 import 'common/common-black-card.dart';
 import 'common/footericon.dart';
-import 'learn_view.dart';
 import "common/syllabus_coverage.dart";
+import "common/common_bottom_navigation.dart";
+import "learn_view.dart";
+import "tests_view.dart";
 class TodayView extends StatefulWidget {
   const TodayView({super.key});
 
@@ -839,62 +841,38 @@ class _TodayViewState extends State<TodayView> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.fromLTRB(8, 9, 8, 22),
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(255, 255, 255, 0.94),
-          border: const Border(
-            top: BorderSide(
-              color: Color.fromRGBO(232, 234, 240, 1),
-              width: 1,
-            ),
-          ),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromRGBO(11, 32, 51, 0.28),
-              offset: Offset(0, -10),
-              blurRadius: 24,
-              spreadRadius: -18,
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            FooterIcon(
-              icon: Icons.home_outlined,
-              title: "Today",
-              selected: true,
-              onTap: () {},
-            ),
-            FooterIcon(
-              icon: Icons.menu_book_outlined,
-              title: "Learn",
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LearnView(),
-                  ),
-                );
-              },
-            ),
-            FooterIcon(
-              icon: Icons.fact_check_outlined,
-              title: "Tests",
-              onTap: () {},
-            ),
-            FooterIcon(
-              icon: Icons.autorenew,
-              title: "Revision",
-              onTap: () {},
-            ),
-            FooterIcon(
-              icon: Icons.apps,
-              title: "More",
-              onTap: () {},
-            ),
-          ],
-        ),
+      bottomNavigationBar: CommonBottomNavigation(
+        selectedIndex: 0,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              break;
+
+            case 1:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LearnView(),
+                ),
+              );
+              break;
+
+            case 2:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TestsView(),
+                ),
+              );
+              break;
+
+            case 3:
+              break;
+
+            case 4:
+              break;
+          }
+        },
       ),
 
     );
