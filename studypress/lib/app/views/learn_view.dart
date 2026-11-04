@@ -1,7 +1,18 @@
 
 import "package:flutter/material.dart";
-import "common/today_view_common.dart";
+import 'package:study_press_mobile/app/views/common/common-black-card.dart';
+import 'package:study_press_mobile/app/views/common/common-whit-card.dart';
+import 'common/header.dart';
 import "common/footericon.dart";
+import 'common/boldText.dart';
+import 'common/lightText.dart';
+import 'common/button.dart';
+import 'common/common_tab.dart';
+import "common/syllabus_coverage.dart";
+import "common/subject_list.dart";
+import "common/online_course_card.dart";
+import "common/course_action_card.dart";
+import "common/upcoming_class_card.dart";
 
 class LearnView extends StatefulWidget {
   const LearnView({super.key});
@@ -22,12 +33,273 @@ class _LearnViewState extends State<LearnView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CommonHeader(),
+                Header(),
+                const SizedBox(height: 18,),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CommonBoldText(
+                      title: "Learn", fontSize: 34,
+                      height:1, letterSpacing: -1.19,
+                    ),
+                    const SizedBox(height: 11,),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CommonLightText(title:  "BCS 46th · 41% covered", fontSize: 13,height: 1,),
+                        const SizedBox(width: 6,),
+                        const Icon(Icons.keyboard_arrow_down, size: 14,color: Color.fromRGBO(100, 116, 139, 1),)
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16 ,),
+                CommonBlackCard(
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 20),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 86,
+                              height: 86,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: SweepGradient(
+                                  startAngle: 0,
+                                  endAngle: 6.28319,
+                                  colors: [
+                                    Color.fromRGBO(232, 165, 0, 1),
+                                    Color.fromRGBO(232, 165, 0, 1),
+                                    Color.fromRGBO(255, 255, 255, 0.12),
+                                    Color.fromRGBO(255, 255, 255, 0.12),
+                                  ],
+                                  stops: [0, 0.6, 0.6, 1],
+                                ),
+                              ),
+                              alignment: Alignment.center,
+                              child: Container(
+                                width: 68,
+                                height: 68,
+                                decoration: const BoxDecoration(
+                                  color: Color.fromRGBO(12, 33, 53, 1),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const CommonBoldText(
+                                      title: "3/5",
+                                      fontSize: 20,
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      letterSpacing: -0.6,
+                                    ),
+                                    const SizedBox(height: 5),
+                                    const CommonLightText(
+                                      title: "READ",
+                                      fontSize: 9.5,
+                                      color: Color.fromRGBO(143, 163, 180, 1),
+                                      letterSpacing: 0.76,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 18),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const CommonBoldText(
+                                    title: "CONTINUE READING",
+                                    fontSize: 11.5,
+                                    color: Color.fromRGBO(232, 165, 0, 1),
+                                    letterSpacing: 1.265,
+                                  ),
+                                  const SizedBox(height: 10),
+                                  const CommonBoldText(
+                                    title: "বাংলা · ব্যঞ্জনসন্ধি",
+                                    fontSize: 19,
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    height: 1.3,
+                                    letterSpacing: -0.475,
+                                  ),
+                                  const SizedBox(height: 7),
+                                  const CommonLightText(
+                                    title: "Chapter 3 of 5 · 8 min left",
+                                    fontSize: 12,
+                                    color: Color.fromRGBO(169, 188, 203, 1),
+                                    height: 1.5,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 18,),
+                        CommonActionButton(
+                          title: "Resume reading",
+                          icon: Icons.play_arrow_rounded,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                ),
+                const SizedBox(height: 18,),
+                CommonWhitCard(
+                 // padding: const EdgeInsets.all(5),
+                  child: Row(
+                    children: [
+                      CommonTab(
+                        title: "Subjects",
+                        icon: Icons.school_outlined,
+                        selected: true,
+                      ),
 
-                // Learn page content
+                      Expanded(
+                        child: CommonTab(
+                          title: "Questions",
+                          icon: Icons.help_outline,
+                        ),
+                      ),
+
+                      Expanded(
+                        child: CommonTab(
+                          title: "Progress",
+                          icon: Icons.bar_chart,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16,),
+                const SyllabusCoverage(),
+                const SizedBox(height: 16,),
+                const SubjectList(),
+
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 24, 0, 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const CommonBoldText(
+                        title: "Online Courses",
+                        fontSize: 16,
+                        letterSpacing: -0.4,
+                      ),
+                      Row(
+                        children: [
+                          const CommonBoldText(
+                            title: "Browse",
+                            fontSize: 12.5,
+                            color: Color.fromRGBO(150, 105, 10, 1),
+                          ),
+                          const SizedBox(width: 6),
+                          const Icon(
+                            Icons.chevron_right,
+                            size: 14,
+                            color: Color.fromRGBO(150, 105, 10, 1),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const OnlineCourseCard(),
+                const SizedBox(height: 10),
+
+                Row(
+                  children: [
+                    Expanded(
+                      child: CourseActionCard(
+                        icon: Icons.grid_view_outlined,
+                        title: "Browse courses",
+                        subtitle: "Live · recorded · hybrid",
+                      ),
+                    ),
+
+                    const SizedBox(width: 10),
+
+                    Expanded(
+                      child: CourseActionCard(
+                        icon: Icons.menu_book_outlined,
+                        title: "My courses",
+                        subtitle: "2 in progress",
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                const UpcomingClassCard(),
+
+
+
+
+
+
+
+
+
+
+
               ],
             ),
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.fromLTRB(8, 9, 8, 22),
+        decoration: BoxDecoration(
+          color: const Color.fromRGBO(255, 255, 255, 0.94),
+          border: const Border(
+            top: BorderSide(
+              color: Color.fromRGBO(232, 234, 240, 1),
+            ),
+          ),
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromRGBO(11, 32, 51, 0.28),
+              offset: Offset(0, -10),
+              blurRadius: 24,
+              spreadRadius: -18,
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            FooterIcon(
+              icon: Icons.home_outlined,
+              title: "Today",
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            FooterIcon(
+              icon: Icons.menu_book_outlined,
+              title: "Learn",
+              selected: true,
+              onTap: () {},
+            ),
+            FooterIcon(
+              icon: Icons.fact_check_outlined,
+              title: "Tests",
+              onTap: () {},
+            ),
+            FooterIcon(
+              icon: Icons.autorenew,
+              title: "Revision",
+              onTap: () {},
+            ),
+            FooterIcon(
+              icon: Icons.apps,
+              title: "More",
+              onTap: () {},
+            ),
+          ],
         ),
       ),
     );
