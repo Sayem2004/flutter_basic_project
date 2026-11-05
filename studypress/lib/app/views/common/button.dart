@@ -1,3 +1,4 @@
+
 import "package:flutter/material.dart";
 
 class CommonActionButton extends StatelessWidget {
@@ -12,6 +13,9 @@ class CommonActionButton extends StatelessWidget {
   final bool showIcon;
   final bool showGradient;
 
+  final double? buttonWidth;
+  final EdgeInsets margin;
+
   const CommonActionButton({
     super.key,
     required this.title,
@@ -22,13 +26,15 @@ class CommonActionButton extends StatelessWidget {
     this.iconColor = const Color.fromRGBO(17, 24, 39, 1),
     this.showIcon = true,
     this.showGradient = true,
+    this.buttonWidth = double.infinity,
+    this.margin = const EdgeInsets.only(top: 18),
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.only(top: 18),
+      width: buttonWidth,
+      margin: margin,
       decoration: BoxDecoration(
         color: showGradient ? null : backgroundColor,
         gradient: showGradient
@@ -73,6 +79,7 @@ class CommonActionButton extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 if (showIcon && icon != null) ...[
                   Icon(

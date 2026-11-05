@@ -7,13 +7,16 @@ class CommonLightText extends StatelessWidget {
   final Color color;
   final double height;
   final double letterSpacing;
+  final FontWeight fontWeight;
 
   const CommonLightText({
     super.key,
     required this.title,
     required this.fontSize,
-    this.color = const Color.fromRGBO(100, 116, 139, 1), this.height= 1,
+    this.color = const Color.fromRGBO(100, 116, 139, 1),
+    this.height = 1,
     this.letterSpacing = 0,
+    this.fontWeight = FontWeight.w400,
   });
 
   @override
@@ -22,8 +25,10 @@ class CommonLightText extends StatelessWidget {
       title,
       style: TextStyle(
         fontSize: fontSize,
-        fontWeight: FontWeight.w400,
+        fontWeight: fontWeight,
         color: color,
+        height: height,
+        letterSpacing: letterSpacing,
       ),
     );
   }

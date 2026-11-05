@@ -3,7 +3,6 @@ import "package:flutter/material.dart";
 import 'package:study_press_mobile/app/views/common/common-black-card.dart';
 import 'package:study_press_mobile/app/views/common/common-whit-card.dart';
 import 'common/header.dart';
-import "common/footericon.dart";
 import 'common/boldText.dart';
 import 'common/lightText.dart';
 import 'common/button.dart';
@@ -16,6 +15,7 @@ import "common/upcoming_class_card.dart";
 import "common/common_bottom_navigation.dart";
 import "tests_view.dart";
 import "today_view.dart";
+import "revision_view.dart";
 
 class LearnView extends StatefulWidget {
   const LearnView({super.key});
@@ -279,6 +279,12 @@ class _LearnViewState extends State<LearnView> {
               break;
 
             case 3:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RevisionView(),
+                ),
+              );
               break;
 
             case 4:

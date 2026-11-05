@@ -7,11 +7,11 @@ import 'common/boldText.dart';
 import 'common/lightText.dart';
 import 'common/actionButtonCommon.dart';
 import 'common/common-black-card.dart';
-import 'common/footericon.dart';
 import "common/syllabus_coverage.dart";
 import "common/common_bottom_navigation.dart";
 import "learn_view.dart";
 import "tests_view.dart";
+import "revision_view.dart";
 class TodayView extends StatefulWidget {
   const TodayView({super.key});
 
@@ -867,6 +867,12 @@ class _TodayViewState extends State<TodayView> {
               break;
 
             case 3:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RevisionView(),
+                ),
+              );
               break;
 
             case 4:
