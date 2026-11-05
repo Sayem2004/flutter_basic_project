@@ -16,6 +16,9 @@ import "common/common_bottom_navigation.dart";
 import "tests_view.dart";
 import "today_view.dart";
 import "revision_view.dart";
+import "more_view.dart";
+
+
 
 class LearnView extends StatefulWidget {
   const LearnView({super.key});
@@ -288,6 +291,12 @@ class _LearnViewState extends State<LearnView> {
               break;
 
             case 4:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MoreView(),
+                ),
+              );
               break;
           }
         },

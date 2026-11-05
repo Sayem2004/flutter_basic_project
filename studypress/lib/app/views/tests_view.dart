@@ -11,6 +11,9 @@ import "learn_view.dart";
 import 'common/button.dart';
 import "common/recommended_tests.dart";
 import "revision_view.dart";
+import "more_view.dart";
+
+
 class TestsView extends StatelessWidget {
   const TestsView({super.key});
 
@@ -375,6 +378,12 @@ class TestsView extends StatelessWidget {
               break;
 
             case 4:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MoreView(),
+                ),
+              );
               break;
           }
         },

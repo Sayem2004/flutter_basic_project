@@ -262,7 +262,6 @@ class _RegistrationViewState extends State<RegistrationView> {
                   const SizedBox(height: 26),
                   SizedBox(
                     width: double.infinity,
-                    //common Button
                     child: CommonButton(
                       title: "Create account",
                       onPressed: register,

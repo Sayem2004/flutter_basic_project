@@ -12,6 +12,7 @@ import "common/button.dart";
 import 'common/common-whit-card.dart';
 import 'common/common_tab.dart';
 import "common/revision_subject_list.dart";
+import "more_view.dart";
 
 
 class RevisionView extends StatelessWidget {
@@ -384,6 +385,12 @@ class RevisionView extends StatelessWidget {
               break;
 
             case 4:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MoreView(),
+                ),
+              );
               break;
           }
         },

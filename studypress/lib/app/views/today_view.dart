@@ -12,6 +12,9 @@ import "common/common_bottom_navigation.dart";
 import "learn_view.dart";
 import "tests_view.dart";
 import "revision_view.dart";
+import "more_view.dart";
+
+
 class TodayView extends StatefulWidget {
   const TodayView({super.key});
 
@@ -876,6 +879,12 @@ class _TodayViewState extends State<TodayView> {
               break;
 
             case 4:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MoreView(),
+                ),
+              );
               break;
           }
         },
