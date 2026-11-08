@@ -17,6 +17,8 @@ import "tests_view.dart";
 import "today_view.dart";
 import "revision_view.dart";
 import "more_view.dart";
+import "search.dart";
+import 'notification.dart';
 
 
 
@@ -39,7 +41,24 @@ class _LearnViewState extends State<LearnView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Header(),
+                Header(
+                  onSearchTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchView(),
+                      ),
+                    );
+                  },
+                  onNotificationTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationView(),
+                      ),
+                    );
+                  },
+                ),
                 const SizedBox(height: 18,),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

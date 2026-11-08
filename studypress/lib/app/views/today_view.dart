@@ -9,10 +9,13 @@ import 'common/actionButtonCommon.dart';
 import 'common/common-black-card.dart';
 import "common/syllabus_coverage.dart";
 import "common/common_bottom_navigation.dart";
-import "learn_view.dart";
+//import "learn_view.dart";
 import "tests_view.dart";
 import "revision_view.dart";
 import "more_view.dart";
+import "search.dart";
+import "notification.dart";
+import "profile.dart";
 
 
 class TodayView extends StatefulWidget {
@@ -34,9 +37,34 @@ class _TodayViewState extends State<TodayView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CommonHeader(),
+                CommonHeader(
+                  onSearchTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchView(),
+                      ),
+                    );
+                  },
+                  onNotificationTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationView(),
+                      ),
+                    );
+                  },
+                  onProfileTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProfileView(),
+                      ),
+                    );
+                  },
 
-                ///WelcomeSection
+
+                ),
                 SizedBox(height: 22),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -227,7 +255,7 @@ class _TodayViewState extends State<TodayView> {
                             CommonButtonLarge(
                               title: "Start Revision",
                               onPressed: () {
-                                print(" ");
+                                print("");
                               },
                             ),
 

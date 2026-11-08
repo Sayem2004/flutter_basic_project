@@ -1,7 +1,11 @@
 import "package:flutter/material.dart";
+import "appearance_settings.dart";
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  final VoidCallback? onSearchTap;
+  final VoidCallback? onNotificationTap;
+  const Header({super.key, this.onSearchTap,
+  this.onNotificationTap});
 
   @override
   Widget build(BuildContext context) {
@@ -28,111 +32,126 @@ class Header extends StatelessWidget {
 
           Row(
             children: [
-              Container(
-                height: 44,
-                width: 44,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(255, 255, 255, 1),
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: const Color.fromRGBO(238, 240, 245, 1),
-                    width: 1,
+              InkWell(
+                onTap: onSearchTap,
+                borderRadius: BorderRadius.circular(50),
+                child: Container(
+                  height: 44,
+                  width: 44,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: const Color.fromRGBO(238, 240, 245, 1),
+                      width: 1,
+                    ),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromRGBO(11, 32, 51, 0.04),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(11, 32, 51, 0.18),
+                        offset: Offset(0, 12),
+                        blurRadius: 28,
+                        spreadRadius: -20,
+                      ),
+                    ],
                   ),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color.fromRGBO(11, 32, 51, 0.04),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(11, 32, 51, 0.18),
-                      offset: Offset(0, 12),
-                      blurRadius: 28,
-                      spreadRadius: -20,
-                    ),
-                  ],
-                ),
-                child: const Icon(Icons.search,
-                  size: 20,
-                  color: Color.fromRGBO(11, 32, 51, 1),
+                  child: const Icon(
+                    Icons.search,
+                    size: 20,
+                    color: Color.fromRGBO(11, 32, 51, 1),
+                  ),
                 ),
               ),
               const SizedBox(width: 9),
 
               // Notification
-              Container(
-                height: 44,
-                width: 44,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(255, 255, 255, 1),
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: const Color.fromRGBO(238, 240, 245, 1),
-                    width: 1,
-                  ),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color.fromRGBO(11, 32, 51, 0.04),
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
+              InkWell(
+                onTap: onNotificationTap,
+                borderRadius: BorderRadius.circular(50),
+                child: Container(
+                  height: 44,
+                  width: 44,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: const Color.fromRGBO(238, 240, 245, 1),
+                      width: 1,
                     ),
-                    BoxShadow(
-                      color: Color.fromRGBO(11, 32, 51, 0.18),
-                      offset: Offset(0, 12),
-                      blurRadius: 28,
-                      spreadRadius: -20,
-                    ),
-                  ],
-                ),
-                child: Stack(
-                  children: [
-                    const Center(
-                      child: Icon(
-                        Icons.notifications_none,
-                        size: 20,
-                        color: Color.fromRGBO(11, 32, 51, 1),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromRGBO(11, 32, 51, 0.04),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
                       ),
-                    ),
+                      BoxShadow(
+                        color: Color.fromRGBO(11, 32, 51, 0.18),
+                        offset: Offset(0, 12),
+                        blurRadius: 28,
+                        spreadRadius: -20,
+                      ),
+                    ],
+                  ),
+                  child: Stack(
+                    children: [
+                      const Center(
+                        child: Icon(
+                          Icons.notifications_none,
+                          size: 20,
+                          color: Color.fromRGBO(11, 32, 51, 1),
+                        ),
+                      ),
 
-                    // Notification Dot
-                    Positioned(
-                      top: 8,
-                      right: 9,
-                      child: Container(
-                        height: 9,
-                        width: 9,
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(232, 165, 0, 1),
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: const Color.fromRGBO(255, 255, 255, 1),
-                            width: 1.5,
+                      // Notification Dot
+                      Positioned(
+                        top: 8,
+                        right: 9,
+                        child: Container(
+                          height: 9,
+                          width: 9,
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(232, 165, 0, 1),
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: const Color.fromRGBO(255, 255, 255, 1),
+                              width: 1.5,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
 
-              const SizedBox(width: 9),
 
-              Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(255, 255, 255, 1),
-                  border: Border.all(
-                    color: const Color.fromRGBO(238, 240, 245, 1),
-                    width: 1,
+              const SizedBox(width: 9),
+              InkWell(
+                onTap: () {
+                  showAppearanceSettings(context);
+                },
+                borderRadius: BorderRadius.circular(50),
+                child: Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                    border: Border.all(
+                      color: const Color.fromRGBO(238, 240, 245, 1),
+                      width: 1,
+                    ),
+                    shape: BoxShape.circle,
                   ),
-                  shape: BoxShape.circle,
-                ),
-                alignment: Alignment.center,
-                child: const Icon(
-                  Icons.settings_outlined,
-                  size: 20,
-                  color: Color.fromRGBO(11, 32, 51, 1),
+                  alignment: Alignment.center,
+                  child: const Icon(
+                    Icons.settings_outlined,
+                    size: 20,
+                    color: Color.fromRGBO(11, 32, 51, 1),
+                  ),
                 ),
               ),
 

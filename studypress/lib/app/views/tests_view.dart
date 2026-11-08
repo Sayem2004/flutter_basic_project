@@ -12,7 +12,8 @@ import 'common/button.dart';
 import "common/recommended_tests.dart";
 import "revision_view.dart";
 import "more_view.dart";
-
+import 'search.dart';
+import 'notification.dart';
 
 class TestsView extends StatelessWidget {
   const TestsView({super.key});
@@ -30,7 +31,24 @@ class TestsView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Header(),
+                Header(
+                  onSearchTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchView(),
+                      ),
+                    );
+                  },
+                  onNotificationTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationView(),
+                      ),
+                    );
+                  },
+                ),
                 const SizedBox(height: 18),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,

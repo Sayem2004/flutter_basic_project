@@ -13,6 +13,8 @@ import "revision_view.dart";
 import "common/profile_membership_card.dart";
 import "common/career_section.dart";
 import "common/account_section.dart";
+import 'search.dart';
+import 'notification.dart';
 
 
 
@@ -31,7 +33,25 @@ class MoreView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Header(),
+                Header(
+                  onSearchTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchView(),
+                      ),
+                    );
+                  },
+                  onNotificationTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationView(),
+                      ),
+                    );
+                  },
+                ),
+
                 const SizedBox(height: 18),
                 CommonBoldText(title: "More", fontSize: 34,height: 1,letterSpacing: -0.42,),
                 const SizedBox(height: 11,),

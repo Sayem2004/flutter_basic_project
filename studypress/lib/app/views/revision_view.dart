@@ -13,7 +13,8 @@ import 'common/common-whit-card.dart';
 import 'common/common_tab.dart';
 import "common/revision_subject_list.dart";
 import "more_view.dart";
-
+import 'search.dart';
+import 'notification.dart';
 
 class RevisionView extends StatelessWidget {
   const RevisionView({super.key});
@@ -29,7 +30,24 @@ class RevisionView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Header(),
+                Header(
+                  onSearchTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchView(),
+                      ),
+                    );
+                  },
+                  onNotificationTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationView(),
+                      ),
+                    );
+                  },
+                ),
                 const SizedBox(height: 18),
 
                 Row(

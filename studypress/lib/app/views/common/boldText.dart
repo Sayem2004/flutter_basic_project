@@ -1,4 +1,3 @@
-
 import "package:flutter/material.dart";
 
 class CommonBoldText extends StatelessWidget {
@@ -7,13 +6,16 @@ class CommonBoldText extends StatelessWidget {
   final Color color;
   final double height;
   final double letterSpacing;
+  final FontWeight fontWeight;
 
   const CommonBoldText({
     super.key,
     required this.title,
     required this.fontSize,
-    this.color = const Color.fromRGBO(17, 24, 39, 1),this.height = 1,
+    this.color = const Color.fromRGBO(17, 24, 39, 1),
+    this.height = 1,
     this.letterSpacing = 0,
+    this.fontWeight = FontWeight.w800,
   });
 
   @override
@@ -22,8 +24,10 @@ class CommonBoldText extends StatelessWidget {
       title,
       style: TextStyle(
         fontSize: fontSize,
-        fontWeight: FontWeight.w800,
+        fontWeight: fontWeight,
         color: color,
+        height: height,
+        letterSpacing: letterSpacing,
       ),
     );
   }
