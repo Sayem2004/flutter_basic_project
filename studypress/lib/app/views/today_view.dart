@@ -16,7 +16,8 @@ import "more_view.dart";
 import "search.dart";
 import "notification.dart";
 import "profile.dart";
-
+import "revision.dart";
+import 'membership.dart';
 
 class TodayView extends StatefulWidget {
   const TodayView({super.key});
@@ -62,8 +63,6 @@ class _TodayViewState extends State<TodayView> {
                       ),
                     );
                   },
-
-
                 ),
                 SizedBox(height: 22),
                 Row(
@@ -174,127 +173,135 @@ class _TodayViewState extends State<TodayView> {
                 ), //Welcome ses
                 // today Focus
                 SizedBox(height: 20),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color.fromRGBO(22, 50, 75, 1),
-                        Color.fromRGBO(11, 32, 51, 1),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: BorderRadius.circular(22),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Color.fromRGBO(11, 32, 51, 0.6),
-                        offset: Offset(0, 20),
-                        blurRadius: 40,
-                        spreadRadius: -26,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Revision()),
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color.fromRGBO(22, 50, 75, 1),
+                          Color.fromRGBO(11, 32, 51, 1),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
-                    ],
-                  ),
+                      borderRadius: BorderRadius.circular(22),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color.fromRGBO(11, 32, 51, 0.6),
+                          offset: Offset(0, 20),
+                          blurRadius: 40,
+                          spreadRadius: -26,
+                        ),
+                      ],
+                    ),
 
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "TODAY'S FOCUS",
-                              style: TextStyle(
-                                fontSize: 10.5,
-                                fontWeight: FontWeight.w600,
-                                height: 1,
-                                letterSpacing: 0.945,
-                                color: Color.fromRGBO(232, 165, 0, 1),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "TODAY'S FOCUS",
+                                style: TextStyle(
+                                  fontSize: 10.5,
+                                  fontWeight: FontWeight.w600,
+                                  height: 1,
+                                  letterSpacing: 0.945,
+                                  color: Color.fromRGBO(232, 165, 0, 1),
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 14),
-                            const Text(
-                              "12mistakes",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                                letterSpacing: -0.66,
-                                height: 1.2,
-                                fontSize: 22,
-                                color: Color.fromRGBO(255, 255, 255, 1),
+                              SizedBox(height: 14),
+                              const Text(
+                                "12mistakes",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: -0.66,
+                                  height: 1.2,
+                                  fontSize: 22,
+                                  color: Color.fromRGBO(255, 255, 255, 1),
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 6),
-                            const Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: "need revision ",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(255, 255, 255, 1),
+                              const SizedBox(height: 6),
+                              const Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: "need revision ",
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                      ),
                                     ),
+                                    TextSpan(
+                                      text: "today",
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(232, 165, 0, 1),
+                                      ),
+                                    ),
+                                  ],
+                                  style: TextStyle(
+                                    fontSize: 16.5,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: -0.33,
+                                    height: 1.25,
                                   ),
-                                  TextSpan(
-                                    text: "today",
+                                ),
+                              ),
+                              SizedBox(height: 18),
+                              // start button call
+                              CommonButtonLarge(
+                                title: "Start Revision",
+                                onPressed: () {
+                                  print("");
+                                },
+                              ),
+
+                              const SizedBox(height: 16),
+
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.description_outlined,
+                                    size: 15,
+                                    color: Color.fromRGBO(169, 188, 203, 1),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  const Text(
+                                    "Go to Revision List",
                                     style: TextStyle(
-                                      color: Color.fromRGBO(232, 165, 0, 1),
+                                      fontSize: 11.5,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1,
+                                      color: Color.fromRGBO(169, 188, 203, 1),
                                     ),
                                   ),
                                 ],
-                                style: TextStyle(
-                                  fontSize: 16.5,
-                                  fontWeight: FontWeight.w600,
-                                  letterSpacing: -0.33,
-                                  height: 1.25,
-                                ),
                               ),
-                            ),
-                            SizedBox(height: 18),
-                            // start button call
-                            CommonButtonLarge(
-                              title: "Start Revision",
-                              onPressed: () {
-                                print("");
-                              },
-                            ),
-
-                            const SizedBox(height: 16),
-
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.description_outlined,
-                                  size: 15,
-                                  color: Color.fromRGBO(169, 188, 203, 1),
-                                ),
-                                const SizedBox(width: 8),
-                                const Text(
-                                  "Go to Revision List",
-                                  style: TextStyle(
-                                    fontSize: 11.5,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1,
-                                    color: Color.fromRGBO(169, 188, 203, 1),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
 
-                      const SizedBox(width: 8),
-                      SizedBox(
-                        width: 128,
-                        height: 128,
-                        child: Image.asset(
-                          "assets/images/today.png",
-                          fit: BoxFit.contain,
+                        const SizedBox(width: 8),
+                        SizedBox(
+                          width: 128,
+                          height: 128,
+                          child: Image.asset(
+                            "assets/images/today.png",
+                            fit: BoxFit.contain,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
 
@@ -327,62 +334,90 @@ class _TodayViewState extends State<TodayView> {
                       // Today's Plan
                       Row(
                         children: [
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 11),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    width: 28,
-                                    height: 28,
-                                    decoration: BoxDecoration(
-                                      color: const Color.fromRGBO(243, 245, 249, 1),
-                                      borderRadius: BorderRadius.circular(9),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Revision(),
+                                ),
+                              );
+                            },
+                            child: Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 11,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 28,
+                                      height: 28,
+                                      decoration: BoxDecoration(
+                                        color: const Color.fromRGBO(
+                                          243,
+                                          245,
+                                          249,
+                                          1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(9),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: const Icon(
+                                        Icons.fact_check_outlined,
+                                        size: 15,
+                                        color: Color.fromRGBO(11, 32, 51, 1),
+                                      ),
                                     ),
-                                    alignment: Alignment.center,
-                                    child: const Icon(
-                                      Icons.fact_check_outlined,
-                                      size: 15,
-                                      color: Color.fromRGBO(11, 32, 51, 1),
+                                    const SizedBox(height: 10),
+                                    CommonBoldText(
+                                      title: "12 Mistakes",
+                                      fontSize: 11,
                                     ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  CommonBoldText(
-                                    title: "12 Mistakes",
-                                    fontSize: 11,
-                                  ),
-                                  const SizedBox(height: 4),
-                                  CommonLightText(
-                                    title: "Revise & improve",
-                                    fontSize: 9.5,
-                                    color: const Color.fromRGBO(148, 163, 184, 1),
-                                  ),
-                                  const SizedBox(height: 10),
+                                    const SizedBox(height: 4),
+                                    CommonLightText(
+                                      title: "Revise & improve",
+                                      fontSize: 9.5,
+                                      color: const Color.fromRGBO(
+                                        148,
+                                        163,
+                                        184,
+                                        1,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10),
 
-                                  Container(
-                                    width: 18,
-                                    height: 18,
-                                    decoration: BoxDecoration(
-                                      color: const Color.fromRGBO(232, 165, 0, 1),
-                                      borderRadius: BorderRadius.circular(10),
+                                    Container(
+                                      width: 18,
+                                      height: 18,
+                                      decoration: BoxDecoration(
+                                        color: const Color.fromRGBO(
+                                          232,
+                                          165,
+                                          0,
+                                          1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: const Icon(
+                                        Icons.check,
+                                        size: 10,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                    alignment: Alignment.center,
-                                    child: const Icon(
-                                      Icons.check,
-                                      size: 10,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
 
-
                           Expanded(
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 11),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 11,
+                              ),
                               decoration: const BoxDecoration(
                                 border: Border(
                                   left: BorderSide(
@@ -400,7 +435,12 @@ class _TodayViewState extends State<TodayView> {
                                     width: 28,
                                     height: 28,
                                     decoration: BoxDecoration(
-                                      color: const Color.fromRGBO(250, 243, 228, 1),
+                                      color: const Color.fromRGBO(
+                                        250,
+                                        243,
+                                        228,
+                                        1,
+                                      ),
                                       borderRadius: BorderRadius.circular(9),
                                     ),
                                     alignment: Alignment.center,
@@ -419,7 +459,12 @@ class _TodayViewState extends State<TodayView> {
                                   CommonLightText(
                                     title: "Read today's brief",
                                     fontSize: 9.5,
-                                    color: const Color.fromRGBO(148, 163, 184, 1),
+                                    color: const Color.fromRGBO(
+                                      148,
+                                      163,
+                                      184,
+                                      1,
+                                    ),
                                   ),
                                   const SizedBox(height: 10),
 
@@ -427,7 +472,12 @@ class _TodayViewState extends State<TodayView> {
                                     width: 18,
                                     height: 18,
                                     decoration: BoxDecoration(
-                                      color: const Color.fromRGBO(232, 165, 0, 1),
+                                      color: const Color.fromRGBO(
+                                        232,
+                                        165,
+                                        0,
+                                        1,
+                                      ),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     alignment: Alignment.center,
@@ -444,7 +494,9 @@ class _TodayViewState extends State<TodayView> {
 
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 11),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 11,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -452,7 +504,12 @@ class _TodayViewState extends State<TodayView> {
                                     width: 28,
                                     height: 28,
                                     decoration: BoxDecoration(
-                                      color: const Color.fromRGBO(243, 245, 249, 1),
+                                      color: const Color.fromRGBO(
+                                        243,
+                                        245,
+                                        249,
+                                        1,
+                                      ),
                                       borderRadius: BorderRadius.circular(9),
                                     ),
                                     alignment: Alignment.center,
@@ -471,7 +528,12 @@ class _TodayViewState extends State<TodayView> {
                                   CommonLightText(
                                     title: "Practice new words",
                                     fontSize: 9.5,
-                                    color: const Color.fromRGBO(148, 163, 184, 1),
+                                    color: const Color.fromRGBO(
+                                      148,
+                                      163,
+                                      184,
+                                      1,
+                                    ),
                                   ),
                                   const SizedBox(height: 10),
 
@@ -481,7 +543,12 @@ class _TodayViewState extends State<TodayView> {
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       border: Border.all(
-                                        color: const Color.fromRGBO(215, 222, 232, 1),
+                                        color: const Color.fromRGBO(
+                                          215,
+                                          222,
+                                          232,
+                                          1,
+                                        ),
                                         width: 1.5,
                                       ),
                                     ),
@@ -495,14 +562,16 @@ class _TodayViewState extends State<TodayView> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 22,),
+                const SizedBox(height: 22),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CommonBoldText(title: "Quick Actions", fontSize: 17),
-                    CommonLightText(title: "Swipe for more", fontSize: 11.5,
-                    color: Color.fromRGBO(148, 163, 184, 1),
+                    CommonLightText(
+                      title: "Swipe for more",
+                      fontSize: 11.5,
+                      color: Color.fromRGBO(148, 163, 184, 1),
                     ),
                   ],
                 ),
@@ -516,10 +585,7 @@ class _TodayViewState extends State<TodayView> {
                         title: "Mock Test",
                       ),
                       const SizedBox(width: 10),
-                      ActionButtonCommon(
-                        icon: Icons.radar,
-                        title: "Live Test",
-                      ),
+                      ActionButtonCommon(icon: Icons.radar, title: "Live Test"),
                       const SizedBox(width: 10),
                       ActionButtonCommon(
                         icon: Icons.warning_amber_outlined,
@@ -563,7 +629,7 @@ class _TodayViewState extends State<TodayView> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 22,),
+                const SizedBox(height: 22),
                 CommonBlackCard(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -641,7 +707,8 @@ class _TodayViewState extends State<TodayView> {
                                 const SizedBox(height: 5),
 
                                 CommonLightText(
-                                  title: "Lesson 08 · 18 min left · next live Sunday 8:00 PM",
+                                  title:
+                                      "Lesson 08 · 18 min left · next live Sunday 8:00 PM",
                                   fontSize: 11,
                                   color: const Color.fromRGBO(169, 188, 203, 1),
                                 ),
@@ -657,7 +724,12 @@ class _TodayViewState extends State<TodayView> {
                             child: Container(
                               height: 5,
                               decoration: BoxDecoration(
-                                color: const Color.fromRGBO(255, 255, 255, 0.14),
+                                color: const Color.fromRGBO(
+                                  255,
+                                  255,
+                                  255,
+                                  0.14,
+                                ),
                                 borderRadius: BorderRadius.circular(3),
                               ),
                               child: FractionallySizedBox(
@@ -687,17 +759,13 @@ class _TodayViewState extends State<TodayView> {
                             ),
                           ),
                           const SizedBox(width: 10),
-                          CommonButtonLarge(
-                            title: "Resume",
-                            onPressed: () {},
-                          ),
+                          CommonButtonLarge(title: "Resume", onPressed: () {}),
                         ],
                       ),
-
                     ],
                   ),
                 ),
-                const SizedBox(height: 26,),
+                const SizedBox(height: 26),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -706,11 +774,14 @@ class _TodayViewState extends State<TodayView> {
                     // CommonLightText(title: "See all", fontSize: 11.5,
                     //   color: Color.fromRGBO(232, 165, 0, 1),
                     // ),
-                    const Text("See alls",style: TextStyle(
-                      fontSize: 13,
-                      height: 1,
-                      fontWeight: FontWeight.w600,color: Color.fromRGBO(233, 165, 0, 1),
-                    ),
+                    const Text(
+                      "See alls",
+                      style: TextStyle(
+                        fontSize: 13,
+                        height: 1,
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromRGBO(233, 165, 0, 1),
+                      ),
                     ),
                   ],
                 ),
@@ -729,9 +800,7 @@ class _TodayViewState extends State<TodayView> {
                         "assets/images/84332567-fb1f-4848-8591-f54f5edb5eb5.webp",
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return const Center(
-                            child: Text("Image Error"),
-                          );
+                          return const Center(child: Text("Image Error"));
                         },
                       ),
                     ),
@@ -762,16 +831,29 @@ class _TodayViewState extends State<TodayView> {
                                         child: Container(
                                           height: 6,
                                           decoration: BoxDecoration(
-                                            color: const Color.fromRGBO(238, 240, 245, 1),
-                                            borderRadius: BorderRadius.circular(3),
+                                            color: const Color.fromRGBO(
+                                              238,
+                                              240,
+                                              245,
+                                              1,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              3,
+                                            ),
                                           ),
                                           child: FractionallySizedBox(
                                             alignment: Alignment.centerLeft,
                                             widthFactor: 0.65,
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                color: const Color.fromRGBO(232, 165, 0, 1),
-                                                borderRadius: BorderRadius.circular(3),
+                                                color: const Color.fromRGBO(
+                                                  232,
+                                                  165,
+                                                  0,
+                                                  1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(3),
                                               ),
                                             ),
                                           ),
@@ -783,7 +865,12 @@ class _TodayViewState extends State<TodayView> {
                                         style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w600,
-                                          color: Color.fromRGBO(100, 116, 139, 1),
+                                          color: Color.fromRGBO(
+                                            100,
+                                            116,
+                                            139,
+                                            1,
+                                          ),
                                           height: 1,
                                         ),
                                       ),
@@ -814,59 +901,66 @@ class _TodayViewState extends State<TodayView> {
                   ],
                 ),
                 const SizedBox(height: 24),
-                CommonBlackCard(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 46,
-                        height: 46,
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(232, 165, 0, 0.12),
-                          border: Border.all(
-                            color: const Color.fromRGBO(232, 165, 0, 0.45),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Membership(),
+                      ),
+                    );
+                  },
+                  child: CommonBlackCard(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 46,
+                          height: 46,
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(232, 165, 0, 0.12),
+                            border: Border.all(
+                              color: const Color.fromRGBO(232, 165, 0, 0.45),
+                            ),
+                            borderRadius: BorderRadius.circular(13),
                           ),
-                          borderRadius: BorderRadius.circular(13),
+                          alignment: Alignment.center,
+                          child: const Icon(
+                            Icons.workspace_premium_outlined,
+                            size: 25,
+                            color: Color.fromRGBO(232, 165, 0, 1),
+                          ),
                         ),
-                        alignment: Alignment.center,
-                        child: const Icon(
-                          Icons.workspace_premium_outlined,
-                          size: 25,
-                          color: Color.fromRGBO(232, 165, 0, 1),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CommonBoldText(
+                                title: "Unlock Full Potential",
+                                fontSize: 14.5,
+                                color: const Color.fromRGBO(255, 255, 255, 1),
+                              ),
+                              const SizedBox(height: 6),
+                              CommonLightText(
+                                title:
+                                    "Unlimited tests, reports and smart features.",
+                                fontSize: 11.5,
+                                color: const Color.fromRGBO(169, 188, 203, 1),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CommonBoldText(
-                              title: "Unlock Full Potential",
-                              fontSize: 14.5,
-                              color: const Color.fromRGBO(255, 255, 255, 1),
-                            ),
-                            const SizedBox(height: 6),
-                            CommonLightText(
-                              title: "Unlimited tests, reports and smart features.",
-                              fontSize: 11.5,
-                              color: const Color.fromRGBO(169, 188, 203, 1),
-                            ),
-                          ],
+                        CommonButtonLarge(
+                          title: "Upgrade",
+                          onPressed: () {
+                            print("");
+                          },
                         ),
-                      ),
-                      CommonButtonLarge(title: "Upgrade", onPressed: (){
-                        print(" ");
-                      },),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-
-
-
-
-
-
-
               ],
             ),
           ),
@@ -882,42 +976,33 @@ class _TodayViewState extends State<TodayView> {
             case 1:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const LearnView(),
-                ),
+                MaterialPageRoute(builder: (context) => const LearnView()),
               );
               break;
 
             case 2:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const TestsView(),
-                ),
+                MaterialPageRoute(builder: (context) => const TestsView()),
               );
               break;
 
             case 3:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const RevisionView(),
-                ),
+                MaterialPageRoute(builder: (context) => const RevisionView()),
               );
               break;
 
             case 4:
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const MoreView(),
-                ),
+                MaterialPageRoute(builder: (context) => const MoreView()),
               );
               break;
           }
         },
       ),
-
     );
   }
 }
