@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "common-whit-card.dart";
 import "boldText.dart";
+import '../bangla_chapters.dart';
 
 class SyllabusCoverage extends StatelessWidget {
   const SyllabusCoverage({super.key});
@@ -109,8 +110,15 @@ class SyllabusCoverage extends StatelessWidget {
                   ),
                 ],
               ),
+              InkWell(
+                onTap: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>BanglaChapters()),
+                  );
+                },
 
-              Container(
+              child:  Container(
                 width: 34,
                 height: 34,
                 decoration: BoxDecoration(
@@ -122,7 +130,8 @@ class SyllabusCoverage extends StatelessWidget {
                   size: 18,
                   color: Color.fromRGBO(11, 32, 51, 1),
                 ),
-              ),
+              ),),
+
             ],
           ),
         ],

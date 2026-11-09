@@ -276,7 +276,6 @@ class Membership extends StatelessWidget {
                             ),
 
                             const SizedBox(height: 4),
-
                             CommonLightText(
                               title: "04 Aug 2025 · card",
                               fontSize: 11.5,

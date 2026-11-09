@@ -18,6 +18,7 @@ import "notification.dart";
 import "profile.dart";
 import "revision.dart";
 import 'membership.dart';
+import 'bangla_chapters.dart';
 
 class TodayView extends StatefulWidget {
   const TodayView({super.key});
@@ -355,11 +356,7 @@ class _TodayViewState extends State<TodayView> {
                                       width: 28,
                                       height: 28,
                                       decoration: BoxDecoration(
-                                        color: const Color.fromRGBO(
-                                          243,
-                                          245,
-                                          249,
-                                          1,
+                                        color: const Color.fromRGBO(243, 245, 249, 1,
                                         ),
                                         borderRadius: BorderRadius.circular(9),
                                       ),
@@ -379,11 +376,7 @@ class _TodayViewState extends State<TodayView> {
                                     CommonLightText(
                                       title: "Revise & improve",
                                       fontSize: 9.5,
-                                      color: const Color.fromRGBO(
-                                        148,
-                                        163,
-                                        184,
-                                        1,
+                                      color: const Color.fromRGBO(148, 163, 184, 1,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
@@ -392,11 +385,7 @@ class _TodayViewState extends State<TodayView> {
                                       width: 18,
                                       height: 18,
                                       decoration: BoxDecoration(
-                                        color: const Color.fromRGBO(
-                                          232,
-                                          165,
-                                          0,
-                                          1,
+                                        color: const Color.fromRGBO(232, 165, 0, 1,
                                         ),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
@@ -435,12 +424,7 @@ class _TodayViewState extends State<TodayView> {
                                     width: 28,
                                     height: 28,
                                     decoration: BoxDecoration(
-                                      color: const Color.fromRGBO(
-                                        250,
-                                        243,
-                                        228,
-                                        1,
-                                      ),
+                                      color: const Color.fromRGBO(250, 243, 228, 1,),
                                       borderRadius: BorderRadius.circular(9),
                                     ),
                                     alignment: Alignment.center,
@@ -459,11 +443,7 @@ class _TodayViewState extends State<TodayView> {
                                   CommonLightText(
                                     title: "Read today's brief",
                                     fontSize: 9.5,
-                                    color: const Color.fromRGBO(
-                                      148,
-                                      163,
-                                      184,
-                                      1,
+                                    color: const Color.fromRGBO(148, 163, 184, 1,
                                     ),
                                   ),
                                   const SizedBox(height: 10),
@@ -472,11 +452,7 @@ class _TodayViewState extends State<TodayView> {
                                     width: 18,
                                     height: 18,
                                     decoration: BoxDecoration(
-                                      color: const Color.fromRGBO(
-                                        232,
-                                        165,
-                                        0,
-                                        1,
+                                      color: const Color.fromRGBO(232, 165, 0, 1,
                                       ),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
@@ -504,11 +480,7 @@ class _TodayViewState extends State<TodayView> {
                                     width: 28,
                                     height: 28,
                                     decoration: BoxDecoration(
-                                      color: const Color.fromRGBO(
-                                        243,
-                                        245,
-                                        249,
-                                        1,
+                                      color: const Color.fromRGBO(243, 245, 249, 1,
                                       ),
                                       borderRadius: BorderRadius.circular(9),
                                     ),
@@ -528,11 +500,7 @@ class _TodayViewState extends State<TodayView> {
                                   CommonLightText(
                                     title: "Practice new words",
                                     fontSize: 9.5,
-                                    color: const Color.fromRGBO(
-                                      148,
-                                      163,
-                                      184,
-                                      1,
+                                    color: const Color.fromRGBO(148, 163, 184, 1,
                                     ),
                                   ),
                                   const SizedBox(height: 10),
@@ -543,11 +511,7 @@ class _TodayViewState extends State<TodayView> {
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       border: Border.all(
-                                        color: const Color.fromRGBO(
-                                          215,
-                                          222,
-                                          232,
-                                          1,
+                                        color: const Color.fromRGBO(215, 222, 232, 1,
                                         ),
                                         width: 1.5,
                                       ),
@@ -786,7 +750,16 @@ class _TodayViewState extends State<TodayView> {
                   ],
                 ),
                 const SizedBox(height: 13),
-                Row(
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BanglaChapters(),
+                      ),
+                    );
+                  },
+                child:  Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
@@ -899,7 +872,7 @@ class _TodayViewState extends State<TodayView> {
                       ),
                     ),
                   ],
-                ),
+                ),),
                 const SizedBox(height: 24),
                 InkWell(
                   onTap: () {
