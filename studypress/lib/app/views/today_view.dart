@@ -769,8 +769,7 @@ class _TodayViewState extends State<TodayView> {
                         borderRadius: BorderRadius.circular(16),
                       ),
                       clipBehavior: Clip.antiAlias,
-                      child: Image.asset(
-                        "assets/images/84332567-fb1f-4848-8591-f54f5edb5eb5.webp",
+                      child: Image.asset("assets/images/84332567-fb1f-4848-8591-f54f5edb5eb5.webp",
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
                           return const Center(child: Text("Image Error"));

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import '../tests_view.dart';
 
 class SearchChapters extends StatelessWidget {
   const SearchChapters({super.key});
@@ -278,7 +279,16 @@ class SearchMockTests extends StatelessWidget {
                   ),
                 ),
 
-                Container(
+                InkWell(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context)=> TestsView()
+                        ),
+                    );
+                  },
+                child:  Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 12,
                     vertical: 9,
@@ -295,7 +305,7 @@ class SearchMockTests extends StatelessWidget {
                       color: Color.fromRGBO(255, 255, 255, 1),
                     ),
                   ),
-                ),
+                ),),
               ],
             ),
           ),

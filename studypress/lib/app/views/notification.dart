@@ -6,7 +6,9 @@ import "common/boldText.dart";
 import "common/lightText.dart";
 import "common/notification_filter_tabs.dart";
 import "common/notification_item.dart";
-
+import 'revision.dart';
+import 'preparation.dart';
+import 'course_player.dart';
 class NotificationView extends StatefulWidget {
 
   const NotificationView({super.key});
@@ -145,9 +147,16 @@ class _NotificationViewState extends State<NotificationView> {
                     horizontal: 16,
                     vertical: 4,
                   ),
-                  child: const Column(
+                  child:  Column(
                     children: [
-                      NotificationItem(
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  Revision()),
+                        );
+                      },
+                     child: NotificationItem(
                         title: "24 questions are due for revision",
                         subtitle: "Study · 20 min ago",
                         icon: Icons.autorenew,
@@ -157,14 +166,20 @@ class _NotificationViewState extends State<NotificationView> {
                         showDot: true,
                         showDivider: true,
                       ),
+                    ),
 
-                      NotificationItem(
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=>Revision(),),);
+                        },
+                     child:  NotificationItem(
                         title: "Today's Current Affairs quiz is available",
                         subtitle: "Content · 4 hours ago",
                         icon: Icons.article_outlined,
                         isUnread: true,
                         showDot: true,
-                      ),
+                      ),),
                     ],
                   ),
                 ),
@@ -179,14 +194,23 @@ class _NotificationViewState extends State<NotificationView> {
                 ),
 
                 const SizedBox(height: 10),
-                CommonWhitCard(
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>CoursePlayer()),);
+                  },
+                child:  CommonWhitCard(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 4,
                   ),
-                  child: const Column(
+                  child: Column(
                     children: [
-                      NotificationItem(
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context)=>PreparationView(),),);
+                      },
+                      child: NotificationItem(
                         title:
                             "Your weekly report is ready — preparation score up 6 points",
                         subtitle: "Results · yesterday",
@@ -194,7 +218,7 @@ class _NotificationViewState extends State<NotificationView> {
                         iconBackground: Color.fromRGBO(236, 247, 241, 1),
                         iconColor: Color.fromRGBO(25, 122, 85, 1),
                         showDivider: true,
-                      ),
+                      ),),
 
                       NotificationItem(
                         title:
@@ -204,7 +228,7 @@ class _NotificationViewState extends State<NotificationView> {
                       ),
                     ],
                   ),
-                ),
+                ),),
 
                 const SizedBox(height: 22),
                 CommonLightText(
@@ -215,7 +239,11 @@ class _NotificationViewState extends State<NotificationView> {
                   color: const Color.fromRGBO(148, 163, 184, 1),
                 ),
                 const SizedBox(height: 10),
-                CommonWhitCard(
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Revision(),),);
+                  },
+                  child: CommonWhitCard(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 4,
@@ -231,7 +259,7 @@ class _NotificationViewState extends State<NotificationView> {
                       ),
                     ],
                   ),
-                ),
+                ),),
                 const SizedBox(height: 22),
 
                 CommonWhitCard(
@@ -239,7 +267,6 @@ class _NotificationViewState extends State<NotificationView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Header
                       Row(
                         children: [
                           const Icon(
