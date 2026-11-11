@@ -19,6 +19,10 @@ import "profile.dart";
 import "revision.dart";
 import 'membership.dart';
 import 'bangla_chapters.dart';
+import 'current_affairs.dart';
+import 'vocabulary.dart';
+import 'live_model_test.dart';
+import 'weak_topics_rank.dart';
 
 class TodayView extends StatefulWidget {
   const TodayView({super.key});
@@ -332,7 +336,6 @@ class _TodayViewState extends State<TodayView> {
                         ),
                       ),
                       const SizedBox(height: 14),
-                      // Today's Plan
                       Row(
                         children: [
                           InkWell(
@@ -402,7 +405,11 @@ class _TodayViewState extends State<TodayView> {
                             ),
                           ),
 
-                          Expanded(
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>CurrentAffairsView(),),);
+                            },
+                          child:  Expanded(
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 11,
@@ -467,8 +474,13 @@ class _TodayViewState extends State<TodayView> {
                               ),
                             ),
                           ),
+                          ),
 
-                          Expanded(
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>VocabularyView(),),);
+                            },
+                          child:  Expanded(
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 11,
@@ -520,7 +532,7 @@ class _TodayViewState extends State<TodayView> {
                                 ],
                               ),
                             ),
-                          ),
+                          ),),
                         ],
                       ),
                     ],
@@ -539,6 +551,7 @@ class _TodayViewState extends State<TodayView> {
                     ),
                   ],
                 ),
+
                 const SizedBox(height: 14),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -547,18 +560,32 @@ class _TodayViewState extends State<TodayView> {
                       ActionButtonCommon(
                         icon: Icons.fact_check_outlined,
                         title: "Mock Test",
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>TestsView(),),);
+                        },
                       ),
                       const SizedBox(width: 10),
-                      ActionButtonCommon(icon: Icons.radar, title: "Live Test"),
+                      ActionButtonCommon(
+                          icon: Icons.radar, title: "Live Test",
+                        onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> LiveModelTestView(),),);
+                        },
+                      ),
                       const SizedBox(width: 10),
                       ActionButtonCommon(
                         icon: Icons.warning_amber_outlined,
                         title: "Weak Topics",
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>WeakTopicsRankView(),),);
+                        },
                       ),
                       const SizedBox(width: 10),
                       ActionButtonCommon(
                         icon: Icons.autorenew,
                         title: "Revision",
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>RevisionView(),),);
+                        },
                       ),
                       const SizedBox(width: 10),
                       ActionButtonCommon(
@@ -569,11 +596,17 @@ class _TodayViewState extends State<TodayView> {
                       ActionButtonCommon(
                         icon: Icons.description_outlined,
                         title: "Affairs",
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CurrentAffairsView(),),);
+                        },
                       ),
                       const SizedBox(width: 10),
                       ActionButtonCommon(
                         icon: Icons.menu_book_outlined,
                         title: "Vocabulary",
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>VocabularyView(),),);
+                        },
                       ),
                       const SizedBox(width: 10),
                       ActionButtonCommon(

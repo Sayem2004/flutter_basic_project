@@ -9,6 +9,8 @@ import "common/notification_item.dart";
 import 'revision.dart';
 import 'preparation.dart';
 import 'course_player.dart';
+import 'membership.dart';
+
 class NotificationView extends StatefulWidget {
 
   const NotificationView({super.key});
@@ -241,7 +243,7 @@ class _NotificationViewState extends State<NotificationView> {
                 const SizedBox(height: 10),
                 InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Revision(),),);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Membership(),),);
                   },
                   child: CommonWhitCard(
                   padding: const EdgeInsets.symmetric(
