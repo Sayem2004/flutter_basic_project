@@ -23,6 +23,11 @@ import 'current_affairs.dart';
 import 'vocabulary.dart';
 import 'live_model_test.dart';
 import 'weak_topics_rank.dart';
+import 'review_list.dart';
+import 'preparation.dart';
+import 'cv_maker.dart';
+import 'ai_mentor.dart';
+import 'course.dart';
 
 class TodayView extends StatefulWidget {
   const TodayView({super.key});
@@ -591,6 +596,9 @@ class _TodayViewState extends State<TodayView> {
                       ActionButtonCommon(
                         icon: Icons.bookmark_border,
                         title: "Saved",
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ReviewListView(),),);
+                        },
                       ),
                       const SizedBox(width: 10),
                       ActionButtonCommon(
@@ -612,22 +620,40 @@ class _TodayViewState extends State<TodayView> {
                       ActionButtonCommon(
                         icon: Icons.analytics_outlined,
                         title: "Reports",
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>PreparationView(),),);
+                        },
                       ),
                       const SizedBox(width: 10),
                       ActionButtonCommon(
                         icon: Icons.badge_outlined,
                         title: "CV Maker",
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CvMakerView(),),);
+                        },
                       ),
                       const SizedBox(width: 10),
                       ActionButtonCommon(
                         icon: Icons.auto_awesome,
                         title: "AI Mentor",
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AiMentorView(),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 22),
-                CommonBlackCard(
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Course(),),);
+                  },
+                child:  CommonBlackCard(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -702,7 +728,6 @@ class _TodayViewState extends State<TodayView> {
                                 ),
 
                                 const SizedBox(height: 5),
-
                                 CommonLightText(
                                   title:
                                       "Lesson 08 · 18 min left · next live Sunday 8:00 PM",
@@ -761,7 +786,8 @@ class _TodayViewState extends State<TodayView> {
                       ),
                     ],
                   ),
-                ),
+                ),),
+
                 const SizedBox(height: 26),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

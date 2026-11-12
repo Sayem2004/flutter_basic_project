@@ -209,7 +209,6 @@ class _CoursePlayerState extends State<CoursePlayer> {
                 ),
               ),
 
-              // Lesson Information
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 26),
                 child: Column(
