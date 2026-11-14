@@ -13,6 +13,7 @@ import "common/online_course_card.dart";
 import "common/course_action_card.dart";
 import "common/upcoming_class_card.dart";
 import "common/common_bottom_navigation.dart";
+import 'course.dart';
 import "tests_view.dart";
 import "today_view.dart";
 import "revision_view.dart";
@@ -234,7 +235,13 @@ class _LearnViewState extends State<LearnView> {
                     ],
                   ),
                 ),
-                const OnlineCourseCard(),
+                 InkWell(
+                   onTap: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Course(),),);
+                   },
+                 child:  OnlineCourseCard(),
+                 ),
+
                 const SizedBox(height: 10),
 
                 Row(
