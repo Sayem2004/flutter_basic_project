@@ -20,6 +20,7 @@ import "revision_view.dart";
 import "more_view.dart";
 import "search.dart";
 import 'notification.dart';
+import 'courses.dart';
 
 
 
@@ -246,13 +247,17 @@ class _LearnViewState extends State<LearnView> {
 
                 Row(
                   children: [
-                    Expanded(
+                    InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Courses(),),);
+                    },
+                    child:  Expanded(
                       child: CourseActionCard(
                         icon: Icons.grid_view_outlined,
                         title: "Browse courses",
                         subtitle: "Live · recorded · hybrid",
                       ),
-                    ),
+                    ),),
 
                     const SizedBox(width: 10),
                     Expanded(

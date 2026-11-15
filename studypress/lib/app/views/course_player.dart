@@ -30,14 +30,12 @@ class _CoursePlayerState extends State<CoursePlayer> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Video Player
               AspectRatio(
                 aspectRatio: 16 / 9,
                 child: Container(
                   color: const Color.fromRGBO(17, 24, 39, 1),
                   child: Stack(
                     children: [
-                      // Back Button
                       Positioned(
                         left: 12,
                         top: 12,
@@ -52,7 +50,6 @@ class _CoursePlayerState extends State<CoursePlayer> {
                         ),
                       ),
 
-                      // Speed and Fullscreen
                       Positioned(
                         right: 12,
                         top: 12,
@@ -92,7 +89,6 @@ class _CoursePlayerState extends State<CoursePlayer> {
                             ),
 
                             const SizedBox(width: 8),
-
                             IconButton(
                               onPressed: () {},
                               icon: const Icon(
@@ -104,7 +100,6 @@ class _CoursePlayerState extends State<CoursePlayer> {
                         ),
                       ),
 
-                      // Video Controls
                       Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -119,7 +114,6 @@ class _CoursePlayerState extends State<CoursePlayer> {
                             ),
 
                             const SizedBox(width: 10),
-
                             Container(
                               width: 62,
                               height: 62,
@@ -286,15 +280,9 @@ class _CoursePlayerState extends State<CoursePlayer> {
                           icon: Icons.download_outlined,
                           showIcon: true,
                           showGradient: false,
-                          backgroundColor: const Color.fromRGBO(
-                            255, 255, 255, 1,
-                          ),
-                          textColor: const Color.fromRGBO(
-                            11, 32, 51, 1,
-                          ),
-                          iconColor: const Color.fromRGBO(
-                            11, 32, 51, 1,
-                          ),
+                          backgroundColor: const Color.fromRGBO(255, 255, 255, 1,),
+                          textColor: const Color.fromRGBO(11, 32, 51, 1,),
+                          iconColor: const Color.fromRGBO(11, 32, 51, 1,),
                           buttonWidth: null,
                           margin: EdgeInsets.zero,
                           onPressed: () {},
@@ -303,7 +291,6 @@ class _CoursePlayerState extends State<CoursePlayer> {
                     ),
 
                     const SizedBox(height: 15),
-
 
                     Container(
                       padding: const EdgeInsets.all(5),
