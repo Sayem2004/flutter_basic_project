@@ -21,6 +21,9 @@ import "more_view.dart";
 import "search.dart";
 import 'notification.dart';
 import 'courses.dart';
+import 'my_courses.dart';
+import 'live_class.dart';
+import 'banjonsondhi.dart';
 
 
 
@@ -83,7 +86,11 @@ class _LearnViewState extends State<LearnView> {
                   ],
                 ),
                 const SizedBox(height: 16 ,),
-                CommonBlackCard(
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Banjonsondhi(),),);
+                  },
+                child:  CommonBlackCard(
                     child: Column(
                       children: [
                         const SizedBox(height: 20),
@@ -170,10 +177,13 @@ class _LearnViewState extends State<LearnView> {
                         CommonActionButton(
                           title: "Resume reading",
                           icon: Icons.play_arrow_rounded,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Banjonsondhi(),),);
+                          },
                         ),
                       ],
                     ),
+                ),
                 ),
                 const SizedBox(height: 18,),
                 CommonWhitCard(
@@ -247,30 +257,40 @@ class _LearnViewState extends State<LearnView> {
 
                 Row(
                   children: [
-                    InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Courses(),),);
-                    },
-                    child:  Expanded(
-                      child: CourseActionCard(
+                    Expanded(
+                      child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Courses(),),);
+                      },
+                      child:  CourseActionCard(
                         icon: Icons.grid_view_outlined,
                         title: "Browse courses",
                         subtitle: "Live · recorded · hybrid",
-                      ),
-                    ),),
+                      ),),
+                    ),
 
                     const SizedBox(width: 10),
                     Expanded(
-                      child: CourseActionCard(
+                      child: InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>MyCourses(),),);
+                        },
+                      child:  CourseActionCard(
                         icon: Icons.menu_book_outlined,
                         title: "My courses",
                         subtitle: "2 in progress",
                       ),
+                      ),
                     ),
+
                   ],
                 ),
                 const SizedBox(height: 10),
-                const UpcomingClassCard(),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LiveClass(),),);
+                  },
+                child:  const UpcomingClassCard(),),
 
 
 

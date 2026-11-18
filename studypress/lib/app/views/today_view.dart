@@ -267,11 +267,12 @@ class _TodayViewState extends State<TodayView> {
                                 ),
                               ),
                               SizedBox(height: 18),
-                              // start button call
                               CommonButtonLarge(
                                 title: "Start Revision",
                                 onPressed: () {
-                                  print("");
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const Revision(),),);
                                 },
                               ),
 
@@ -890,7 +891,12 @@ class _TodayViewState extends State<TodayView> {
                             const SizedBox(width: 10),
                             CommonButtonLarge(
                               title: "Resume",
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Course()),
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -1102,7 +1108,12 @@ class _TodayViewState extends State<TodayView> {
                         CommonButtonLarge(
                           title: "Upgrade",
                           onPressed: () {
-                            print("");
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Membership(),
+                              ),
+                            );
                           },
                         ),
                       ],

@@ -1,6 +1,7 @@
 
 import "package:flutter/material.dart";
 import "package:study_press_mobile/app/views/common/common-black-card.dart";
+import 'weak_topics_rank.dart';
 import "common/header.dart";
 import "common/common_bottom_navigation.dart";
 import "today_view.dart";
@@ -15,6 +16,8 @@ import "common/revision_subject_list.dart";
 import "more_view.dart";
 import 'search.dart';
 import 'notification.dart';
+import 'revision.dart';
+import 'review_list.dart';
 
 class RevisionView extends StatelessWidget {
   const RevisionView({super.key});
@@ -195,7 +198,9 @@ class RevisionView extends StatelessWidget {
                         backgroundColor: const Color.fromRGBO(240, 174, 18, 1),
                         textColor: const Color.fromRGBO(17, 24, 39, 1),
                         iconColor: const Color.fromRGBO(17, 24, 39, 1),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Revision(),),);
+                        },
                       ),
                     ],
                   ),
@@ -235,21 +240,41 @@ class RevisionView extends StatelessWidget {
                       title: "Math · Interest & Percentage",
                       description: "9 questions · wrong twice · stage 1",
                       count: 2,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Revision(),
+                          ),
+                        );
+                      },
                     ),
+
                     RevisionSubject(
                       title: "বাংলা ব্যাকরণ · কারক",
                       description: "7 questions · stage 2",
                       count: 1,
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Revision(),),);
+                      }
                     ),
+
                     RevisionSubject(
                       title: "English · Prepositions",
                       description: "5 questions · stage 2",
                       count: 1,
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Revision(),),);
+                        }
                     ),
+
                     RevisionSubject(
                       title: "GK · আন্তর্জাতিক সংস্থা",
                       description: "3 questions · stage 3",
                       count: 1,
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Revision(),),);
+                        }
                     ),
                   ],
                 ),
@@ -279,8 +304,12 @@ class RevisionView extends StatelessWidget {
                               color: Color.fromRGBO(11, 32, 51, 1),
                             ),
                             const SizedBox(width: 9),
-                            const Expanded(
-                              child: Column(
+                            Expanded(
+                              child:InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ReviewListView(),),);
+                                },
+                                child:  Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   CommonBoldText(title: "Review List",
@@ -294,7 +323,7 @@ class RevisionView extends StatelessWidget {
                                     height: 1.35,
                                   ),
                                 ],
-                              ),
+                              ),),
                             ),
                           ],
                         ),
@@ -320,15 +349,20 @@ class RevisionView extends StatelessWidget {
                             bottomRight: Radius.circular(18),
                           ),
                         ),
-                        child: Row(
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>WeakTopicsRankView(),),);
+                          },
+                          child:  Row(
                           children: [
-                            const Icon(
+                             Icon(
                               Icons.track_changes,
                               size: 21,
                               color: Color.fromRGBO(11, 32, 51, 1),
                             ),
                             const SizedBox(width: 9),
-                            const Expanded(
+                            Expanded(
+
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -346,13 +380,13 @@ class RevisionView extends StatelessWidget {
                               ),
                             ),
 
-                            const Icon(
+                             Icon(
                               Icons.chevron_right,
                               size: 15,
                               color: Color.fromRGBO(148, 163, 184, 1),
                             ),
                           ],
-                        ),
+                        ),),
                       ),
                     ),
                   ],

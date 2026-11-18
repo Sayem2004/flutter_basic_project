@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import "boldText.dart";
 import "lightText.dart";
 import "common-black-card.dart";
+import '../profile.dart';
 
 class ProfileMembershipCard extends StatelessWidget {
   const ProfileMembershipCard({super.key});
@@ -108,23 +109,35 @@ class ProfileMembershipCard extends StatelessWidget {
                   ),
                   color: const Color.fromRGBO(255, 255, 255, 0.06),
                 ),
-                child: const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.edit_outlined,
-                      size: 13,
-                      color: Colors.white,
-                    ),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfileView(),
+                      ),
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(999),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.edit_outlined,
+                        size: 13,
+                        color: Colors.white,
+                      ),
 
-                    SizedBox(width: 6),
-                    CommonLightText(
-                      title: "Edit",
-                      fontSize: 11.5,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
-                  ],
+                      const SizedBox(width: 6),
+
+                      const CommonLightText(
+                        title: "Edit",
+                        fontSize: 11.5,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import "common-whit-card.dart";
 import "boldText.dart";
 import "lightText.dart";
+import '../course_2.dart';
 
 class PopularCourseList extends StatelessWidget {
   const PopularCourseList({super.key});
@@ -15,19 +16,23 @@ class PopularCourseList extends StatelessWidget {
         vertical: 4,
       ),
       child: Column(
-        children: const [
-
+        children: [
           PopularCourseItem(
             image: "assets/images/84332567-fb1f-4848-8591-f54f5edb5eb5.webp",
             title: "English Foundation Course",
             badge: "RECORDED",
             description: "Nusrat Jahan · recorded",
             price: "৳1,299",
-            badgeColor: Color.fromRGBO(243, 245, 249, 1),
-            badgeTextColor: Color.fromRGBO(71, 85, 105, 1),
+            badgeColor: const Color.fromRGBO(243, 245, 249, 1),
+            badgeTextColor: const Color.fromRGBO(71, 85, 105, 1),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => const Course2(),
+              ));
+            },
           ),
 
-          Divider(
+          const Divider(
             height: 1,
             color: Color.fromRGBO(238, 240, 245, 1),
           ),
@@ -38,11 +43,16 @@ class PopularCourseList extends StatelessWidget {
             badge: "LIVE",
             description: "Tanmoy Das · live batch",
             price: "৳1,899",
-            badgeColor: Color.fromRGBO(253, 240, 238, 1),
-            badgeTextColor: Color.fromRGBO(150, 48, 38, 1),
+            badgeColor: const Color.fromRGBO(253, 240, 238, 1),
+            badgeTextColor: const Color.fromRGBO(150, 48, 38, 1),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => const Course2(),
+              ));
+            },
           ),
 
-          Divider(
+          const Divider(
             height: 1,
             color: Color.fromRGBO(238, 240, 245, 1),
           ),
@@ -53,8 +63,13 @@ class PopularCourseList extends StatelessWidget {
             badge: "INCLUDED",
             description: "Editorial desk · included in Premium",
             price: "Premium",
-            badgeColor: Color.fromRGBO(252, 245, 228, 1),
-            badgeTextColor: Color.fromRGBO(138, 96, 0, 1),
+            badgeColor: const Color.fromRGBO(252, 245, 228, 1),
+            badgeTextColor: const Color.fromRGBO(138, 96, 0, 1),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => const Course2(),
+              ));
+            },
           ),
         ],
       ),
@@ -71,6 +86,7 @@ class PopularCourseItem extends StatelessWidget {
   final String price;
   final Color badgeColor;
   final Color badgeTextColor;
+  final VoidCallback onTap;
 
   const PopularCourseItem({
     super.key,
@@ -81,6 +97,7 @@ class PopularCourseItem extends StatelessWidget {
     required this.price,
     required this.badgeColor,
     required this.badgeTextColor,
+    required this.onTap,
   });
 
   @override
@@ -88,11 +105,9 @@ class PopularCourseItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
       child: InkWell(
-        onTap: () {
-        },
+        onTap: onTap,
         child: Row(
           children: [
-
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Container(
@@ -114,13 +129,11 @@ class PopularCourseItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   Wrap(
                     spacing: 7,
                     runSpacing: 5,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-
                       CommonBoldText(
                         title: title,
                         fontSize: 13.5,
