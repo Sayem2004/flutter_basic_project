@@ -22,7 +22,7 @@ import 'vocabulary.dart';
 import 'membership.dart';
 import 'profile.dart';
 import 'cv_maker.dart';
-import '';
+import ' explore_jobs.dart';
 
 
 
@@ -279,7 +279,7 @@ class MoreView extends StatelessWidget {
                       subtitle: "Find jobs & study",
                       icon: Icons.public,
                       onTap: () {
-                        // Navigate to Jobs / Abroad
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ExploreJobsView(),),);
                       },
                     ),
                     CareerFeature(
