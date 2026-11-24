@@ -23,6 +23,7 @@ import 'membership.dart';
 import 'profile.dart';
 import 'cv_maker.dart';
 import ' explore_jobs.dart';
+import 'career_Hub.dart';
 
 
 
@@ -263,7 +264,7 @@ class MoreView extends StatelessWidget {
                       subtitle: "Explore opportunities",
                       icon: Icons.work_outline,
                       onTap: () {
-                        // Navigate to Career Hub
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CareerHub(),),);
                       },
                     ),
                     CareerFeature(
