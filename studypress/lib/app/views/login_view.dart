@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "registration_view.dart";
 import "today_view.dart";
 import "common.dart";
+import 'onboarding.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -55,7 +56,8 @@ class _LoginViewState extends State<LoginView> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const TodayView(),
+          //builder: (context) => const TodayView(),
+          builder: (context) => const Onboarding(),
         ),
       );
     } else {
